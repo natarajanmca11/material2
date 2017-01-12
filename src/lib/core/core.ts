@@ -6,8 +6,7 @@ import {MdOptionModule} from './option/option';
 import {MdRippleModule} from './ripple/ripple';
 import {PortalModule} from './portal/portal-directives';
 import {OverlayModule} from './overlay/overlay-directives';
-import {A11yModule, A11Y_PROVIDERS} from './a11y/index';
-import {OVERLAY_PROVIDERS} from './overlay/overlay';
+import {A11yModule} from './a11y/index';
 
 
 // RTL
@@ -45,6 +44,7 @@ export {Platform as MdPlatform} from './platform/platform';
 // Overlay
 export {Overlay, OVERLAY_PROVIDERS} from './overlay/overlay';
 export {OverlayContainer} from './overlay/overlay-container';
+export {FullscreenOverlayContainer} from './overlay/fullscreen-overlay-container';
 export {OverlayRef} from './overlay/overlay-ref';
 export {OverlayState} from './overlay/overlay-state';
 export {
@@ -70,8 +70,8 @@ export {
   AriaLivePoliteness,
   LiveAnnouncer,
   LIVE_ANNOUNCER_ELEMENT_TOKEN,
+  LIVE_ANNOUNCER_PROVIDER,
 } from './a11y/live-announcer';
-
 /** @deprecated */
 export {LiveAnnouncer as MdLiveAnnouncer} from './a11y/live-announcer';
 
@@ -83,9 +83,9 @@ export {A11yModule} from './a11y/index';
 
 export {
   UniqueSelectionDispatcher,
-  UniqueSelectionDispatcherListener
+  UniqueSelectionDispatcherListener,
+  UNIQUE_SELECTION_DISPATCHER_PROVIDER,
 } from './coordination/unique-selection-dispatcher';
-
 /** @deprecated */
 export {
   UniqueSelectionDispatcher as MdUniqueSelectionDispatcher
@@ -142,10 +142,11 @@ export {NoConflictStyleCompatibilityMode} from './compatibility/no-conflict-mode
   ],
 })
 export class MdCoreModule {
+  /** @deprecated */
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: MdCoreModule,
-      providers: [A11Y_PROVIDERS, OVERLAY_PROVIDERS],
+      providers: [],
     };
   }
 }
